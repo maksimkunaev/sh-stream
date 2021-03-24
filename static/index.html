@@ -1,0 +1,99 @@
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>realtime</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/resemblejs@3.2.5/resemble.min.js"></script>
+    <script
+      src="https://cdn.socket.io/3.1.3/socket.io.min.js"
+      integrity="sha384-cPwlPLvBTa3sKAgddT6krw0cJat7egBga3DJepJyrLl4Q9/5WLra3rrnMcyTyOnh"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <style>
+    body {
+      font-size: 20px;
+      padding: 0;
+      margin: 0;
+      background: #1d1d1d;
+      color: #adadad;
+      font-family: sans-serif;
+    }
+
+    button,
+    input {
+      margin-top: 15px;
+      border-radius: 7px;
+      outline: none;
+      border: 1px solid #adadad;
+      background: transparent;
+      color: #adadad;
+      cursor: pointer;
+    }
+
+    .start-stream,
+    .end-stream {
+      margin: 0;
+      align-self: center;
+      padding: 15px;
+      border-radius: 200px;
+      font-size: 17px;
+    }
+
+    .start-stream:hover,
+    .end-stream:hover,
+    .start-stream:focus,
+    .end-stream:focus {
+      box-shadow: 0px 0px 0px 2px #c4c4c4c4;
+    }
+
+    .start-stream:active,
+    .end-stream:active {
+      background: #656565;
+      color: #1d1d1d;
+    }
+
+    .start-stream {
+      margin-right: 10px;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      width: 500px;
+      max-width: 100%;
+      margin: 0 auto;
+    }
+
+    video {
+      margin: 0 auto;
+      width: 100%;
+      height: 100%;
+    }
+
+    .controls {
+      margin: 0 auto;
+      margin-top: 12px;
+      z-index: 11;
+      position: fixed;
+      bottom: 100px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  </style>
+  <body>
+    <video src=""></video>
+    <canvas></canvas>
+    <form id="listPage" class="listPage">
+      <div class="controls">
+        <button class="start-stream">start</button>
+        <button class="end-stream">stop</button>
+      </div>
+    </form>
+
+    <script src="main.js"></script>
+  </body>
+</html>
