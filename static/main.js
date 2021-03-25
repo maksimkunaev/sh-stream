@@ -125,7 +125,7 @@ class Main {
   }
 
   async startRecording() {
-    const options = { mimeType: 'video/webm' };
+    const options = { mimeType: 'video/webm;codecs=opus,vp8' };
 
     this.mediaRecorder = new MediaRecorder(this.video.srcObject, options);
 
@@ -236,7 +236,7 @@ class Main {
   }
 }
 
-const instanse = new Main(300, 300, canvas, video);
+const instanse = new Main(600, 450, canvas, video);
 
 startElem.addEventListener('click', e => {
   e.preventDefault();
