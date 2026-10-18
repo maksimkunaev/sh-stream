@@ -1,5 +1,7 @@
 const TelegramBot = require('node-telegram-bot-api');
 const TOKEN = process.env.BOT_TOKEN;
+// Comma-separated Telegram chat IDs allowed to control the camera.
+const ALLOWED_CHAT_IDS = (process.env.ALLOWED_CHAT_IDS || '').split(',').map((id) => id.trim()).filter(Boolean);
 
 class BotService {
 	constructor() {
@@ -19,6 +21,10 @@ class BotService {
 	on_message(msg, match) {
 		const chatId = msg.chat.id;
 		const text = msg.text;
+
+		if (!ALLOWED_CHAT_IDS.includes(String(chatId))) {
+			return this.bot.sendMessage(chatId, 'Not authorized.');
+		}
 
 		this.participantId = chatId;
 		const command = this.text_code[text];
